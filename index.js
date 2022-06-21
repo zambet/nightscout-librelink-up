@@ -200,8 +200,9 @@ async function lastEntryDate() {
 }
 
 async function uploadToNightScout(measurementData) {
-    const glucoseMeasurement = measurementData.connection.glucoseMeasurement;
     logger.info("uploadToNightScout");
+    logger.info(measurementData);
+    const glucoseMeasurement = measurementData.connection.glucoseMeasurement;
     logger.info(glucoseMeasurement);
     const measurementDate = getUtcDateFromString(glucoseMeasurement.FactoryTimestamp);
 
