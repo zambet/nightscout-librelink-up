@@ -200,10 +200,7 @@ async function lastEntryDate() {
 }
 
 async function uploadToNightScout(measurementData) {
-    logger.info("uploadToNightScout");
-    logger.info(measurementData);
     const glucoseMeasurement = measurementData.connection.glucoseMeasurement;
-    logger.info(glucoseMeasurement);
     const measurementDate = getUtcDateFromString(glucoseMeasurement.FactoryTimestamp);
 
     let lastEntry = await lastEntryDate();
@@ -222,8 +219,6 @@ async function uploadToNightScout(measurementData) {
     }
 
     measurementData.graphData.forEach((glucoseMeasurementHistoryEntry) => {
-        logger.info("each glucoseMeasurementHistoryEntry");
-        logger.info(glucoseMeasurementHistoryEntry);
         let entryDate = getUtcDateFromString(glucoseMeasurementHistoryEntry.FactoryTimestamp);
         if (entryDate > lastEntry) {
             formattedMeasurements.push({
